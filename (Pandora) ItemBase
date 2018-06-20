@@ -1,0 +1,27 @@
+package com.avatar.scifipandoramod.items;
+
+import com.avatar.scifipandoramod.MainClass;
+import com.avatar.scifipandoramod.init.ModItems;
+import com.avatar.scifipandoramod.util.IHasModel;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+
+public class ItemBase extends Item implements IHasModel {
+	
+	public ItemBase(String Name)
+	{
+		setUnlocalizedName(Name);
+		setRegistryName(Name);
+		setCreativeTab(CreativeTabs.MATERIALS);
+		
+		ModItems.ITEMS.add(this);
+	}
+
+	@Override
+	public void registerModels() 
+	{	
+		MainClass.proxy.registerItemRenderer(this, 0, "inventory");
+	}
+
+}
